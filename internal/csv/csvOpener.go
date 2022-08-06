@@ -3,6 +3,8 @@ package csv
 import (
 	"log"
 	"os"
+
+	"github.com/gocarina/gocsv"
 )
 
 type Address struct {
@@ -32,8 +34,14 @@ func (receiver *csvOpener) Open() {
 	}
 	defer csvFile.Close()
 
-	// this csvLines is a 2D array of strings
-	for _, line := range csvLines {
+	var Addresses []*Address
 
+	err = gocsv.Unmarshal(csvFile, Addresses)
+	if err != nil {
+		log.Fatalf("Error happend while unmarshaling %v", err)
+	}
+
+	for _, address := range Addresses {
+		print(address.Lastname)
 	}
 }
