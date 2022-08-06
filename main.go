@@ -1,5 +1,7 @@
 package main
 
+import "github.com/parsaeisa/golang_open_file/cmd"
+
 func main() {
-	print("Hello biatch")
+	cmd.Execute()
 }
