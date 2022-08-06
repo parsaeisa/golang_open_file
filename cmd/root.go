@@ -8,7 +8,7 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(openCsv)
+	rootCmd.AddCommand(openCsvCommand)
 }
 
 func Execute() error {
