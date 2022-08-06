@@ -28,7 +28,7 @@ func NewCsvopener(path string) CsvOpener {
 }
 
 func (receiver *csvOpener) Open() {
-	csvFile, err := os.Open("../addresses.csv")
+	csvFile, err := os.Open("addresses.csv")
 	if err != nil {
 		log.Fatalf("csv file could not be opened %v", err)
 	}
@@ -36,12 +36,12 @@ func (receiver *csvOpener) Open() {
 
 	var Addresses []*Address
 
-	err = gocsv.Unmarshal(csvFile, Addresses)
+	err = gocsv.Unmarshal(csvFile, &Addresses)
 	if err != nil {
 		log.Fatalf("Error happend while unmarshaling %v", err)
 	}
 
 	for _, address := range Addresses {
-		print(address.Lastname)
+		println(address.Lastname)
 	}
 }
