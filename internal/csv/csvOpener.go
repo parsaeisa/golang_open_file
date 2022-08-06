@@ -16,7 +16,7 @@ type csvOpener struct {
 }
 
 type CsvOpener interface {
-	open()
+	Open()
 }
 
 func NewCsvopener(path string) CsvOpener {
@@ -25,7 +25,7 @@ func NewCsvopener(path string) CsvOpener {
 	}
 }
 
-func (receiver *csvOpener) open() {
+func (receiver *csvOpener) Open() {
 	csvFile, err := os.Open("../addresses.csv")
 	if err != nil {
 		log.Fatalf("csv file could not be opened %v", err)
